@@ -3,13 +3,8 @@ class Nave:
     def __init__(self, nombre, tamano):
         self.nombre = nombre       # Atributo: Nombre de la nave
         self.vida = tamano         # Atributo: Resistencia de la nave
-        self.hundido = False       # Atributo: Estado lógico inicial
 
 
     def recibir_disparo(self):
         self.vida -= 1
-        if self.vida <= 0:
-            self.hundido = True
-            print(f"¡El {self.nombre} ha sido hundido!")
-        else:
-            print(f"¡El {self.nombre} ha sido tocado! Vida restante: {self.vida}")
+        return self.vida
