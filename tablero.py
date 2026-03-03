@@ -1,12 +1,12 @@
 from nave import Nave
 class Tablero:
     def __init__(self):
-        self.ocupante = None  # Aquí se guarda un objeto Nave si la casilla está ocupada, o None si está vacía
-        self.revelada = False  # Indica si la casilla ya ha sido atacada
+        self.agua = 0
+        self.tocado = 1
+        self.hundido = 2
 
-    def disparar(self):
-        self.revelada = True  # Marcamos la casilla como revelada tras el disparo
-        if self.ocupante:
-            # Si hay una nave, se le aplica el impacto
-            return self.ocupante.recibir_disparo()
-        return False  # Si no hay nave, no se hunde nada
+    def comprobar_impacto(self, x, y):
+
+        print("(LOG) Estoy en tablero comprobando el impacto")
+        return self.agua
+
