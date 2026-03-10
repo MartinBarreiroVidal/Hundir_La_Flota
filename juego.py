@@ -16,7 +16,7 @@ class Juego:
         :return:
         """
 
-    def mostrar_resultado(self, resultado):
+    def mostrar_resultado(self, resultado:int):
         """
         Muestra el resultado del disparo
         Args:
@@ -35,7 +35,7 @@ class Juego:
         Ejecuta un disparo en las coordenadas indicadas
         Si impacta una nave y su vida llega a cero,
         :args
-        x(int): coordenada x del tablero
+        x(int): coordenada x del disparo
         y(int): coordenada y del tablero
 
         """
@@ -43,7 +43,6 @@ class Juego:
         obj_tablero = Tablero()
         resultado = obj_tablero.comprobar_impacto(x,y)
         self.mostrar_resultado(resultado)
-
 
 if __name__ == "__main__":
     Juego()
