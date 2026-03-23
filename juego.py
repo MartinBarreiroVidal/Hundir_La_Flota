@@ -7,7 +7,7 @@ class Juego:
         Inicializamos el tablero y las naves del juego
         """
 
-        self.lanzar_ataque(3,2)
+        self.lanzar_ataque(1,1)
 
     def inicializar_naves(self):
         """
