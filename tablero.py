@@ -74,11 +74,11 @@ class Tablero:
                     str: Resultado del disparo ("Agua", "Tocado", "Hundido")
                 """
         print(f"(LOG) estoy en tablero comprobando el impacto({x},{y})")
-        print(f"(LOG) casillero [{x},{y}] = {self.casillero[x][y]}")
         if self.casillero[x][y] is None:
             print("(LOG) AGUA")
         else:
             print(f"(LOG) ({self.casillero[x][y].nombre}) TOCADO")
+            self.casillero[x][y].recibir_disparo()
         return self.agua
 
 

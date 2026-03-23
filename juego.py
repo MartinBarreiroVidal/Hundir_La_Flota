@@ -1,26 +1,21 @@
-from nave import Nave
 from tablero import Tablero
+
 class Juego:
     def __init__(self):
         """
-        Constructor de la clase juego.
-        Inicializamos el tablero y las naves del juego
+        Constructor de la clase Juego.
+        Creamos UN SOLO tablero para toda la partida.
         """
+        self.tablero = Tablero()
 
-        self.lanzar_ataque(1,1)
+        self.lanzar_ataque(1, 1)   # Primer disparo -> Tocado
 
-    def inicializar_naves(self):
+    def mostrar_resultado(self, resultado: int):
         """
-        Crea e inicializa todas las naves del juego
-        Coloca las naves en el tablero en posiciones predefinidas
-        :return:
-        """
+        Muestra el resultado del disparo.
 
-    def mostrar_resultado(self, resultado:int):
-        """
-        Muestra el resultado del disparo
         Args:
-            resultado (str)
+            resultado (int)
         """
         if resultado == 0:
             print("Agua")
@@ -28,20 +23,15 @@ class Juego:
             print("Tocado")
         elif resultado == 2:
             print("Hundido")
-
+        elif resultado == 3:
+            print("Casilla ya disparada")
 
     def lanzar_ataque(self, x, y):
         """
-        Ejecuta un disparo en las coordenadas indicadas
-        Si impacta una nave y su vida llega a cero,
-        :args
-        x(int): coordenada x del disparo
-        y(int): coordenada y del tablero
-
+        Ejecuta un disparo en las coordenadas indicadas.
         """
-        print(f"Atacando a {x}, {y}")
-        obj_tablero = Tablero()
-        resultado = obj_tablero.comprobar_impacto(x,y)
+        print(f"\nAtacando a {x}, {y}")
+        resultado = self.tablero.comprobar_impacto(x, y)
         self.mostrar_resultado(resultado)
 
 if __name__ == "__main__":

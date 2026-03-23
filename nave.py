@@ -21,5 +21,6 @@ class Nave:
             Returns:
             str: Estado de la nave tras el disparo ("Tocado", "Hundido", etc.)
         """
+        self.vida = self.vida -1
         return
 
