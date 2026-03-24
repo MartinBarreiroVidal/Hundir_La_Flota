@@ -4,11 +4,11 @@ from casilla import Casilla
 
 class Tablero:
     def __init__(self):
-        self.AGUA = 0
-        self.TOCADO = 1
-        self.HUNDIDO = 2
+        self.AGUA = 0 # AGUA será 0
+        self.TOCADO = 1 # TOCADO será 1
+        self.HUNDIDO = 2 # HUNDIDO será 2
 
-        # ===== NAVES =====
+        # ===== NAVES ===== Aquí determinamos el nombre, tipo y vida de cada nave.
         por1 = Nave("Destructor", "portaaviones", 5)
         fra1 = Nave("Bismarck", "fragata", 3)
         fra2 = Nave("Prince of Wales", "fragata", 3)
@@ -19,7 +19,7 @@ class Tablero:
         sub3 = Nave("U-505", "submarino", 1)
         sub4 = Nave("U-534", "submarino", 1)
 
-        # ===== TABLERO BASE (SOLO CASILLAS) =====
+        # ===== TABLERO BASE (SOLO CASILLAS) ===== Aqui estamos creando el casillero 10 x 10
         self.casillero = [
             [Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(),
              Casilla()],
@@ -52,14 +52,14 @@ class Tablero:
              Casilla()]
         ]
 
-        # portaaviones
+        # portaaviones Localización de los portaaviones en el casillero.
         self.casillero[1][1].nave = por1
         self.casillero[1][2].nave = por1
         self.casillero[1][3].nave = por1
         self.casillero[1][4].nave = por1
         self.casillero[1][5].nave = por1
 
-        # fragatas
+        # fragatas Localización de las fragatas en el casillero.
         self.casillero[3][3].nave = fra1
         self.casillero[4][3].nave = fra1
         self.casillero[5][3].nave = fra1
@@ -72,13 +72,13 @@ class Tablero:
         self.casillero[9][2].nave = fra3
         self.casillero[9][3].nave = fra3
 
-        # submarinos
+        # submarinos Localización de los submarinos en el casillero.
         self.casillero[4][6].nave = sub1
         self.casillero[9][9].nave = sub2
         self.casillero[7][6].nave = sub3
         self.casillero[9][5].nave = sub4
 
     # ===== DISPARO =====
-    def comprobar_impacto(self, x, y):
+    def comprobar_impacto(self, x, y): # Aquí comprobamos verdaderamente donde cayó el ataque que lanzamos en la clase juego.
         print(f"Impacto en ({x},{y})")
         return self.casillero[x][y].disparar()

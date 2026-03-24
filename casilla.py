@@ -1,16 +1,16 @@
 class Casilla:
     def __init__(self):
-        self.nave = None
-        self.visitada = False
+        self.nave = None # No hay naves en esta casilla
+        self.visitada = False # Esta casilla ya fue visitada/disparada
 
-    def disparar(self):
-        if self.visitada:
+    def disparar(self): # Aquí determinamos el estado de la casilla
+        if self.visitada: # Si ocurre esto, muestra por pantalla que aquí ya se disparó.
             print("Ya disparaste aquí")
             return None
 
         self.visitada = True
 
-        if self.nave is None:
+        if self.nave is None: # Si la naves es None significa que no hay naves en esa casilla, entonces muestra "Agua".
             print("Agua")
             return 0
 
