@@ -1,12 +1,84 @@
 from nave import Nave
+from casilla import Casilla
+
+
 class Tablero:
     def __init__(self):
-        self.agua = 0
-        self.tocado = 1
-        self.hundido = 2
+        self.AGUA = 0 # AGUA será 0
+        self.TOCADO = 1 # TOCADO será 1
+        self.HUNDIDO = 2 # HUNDIDO será 2
 
-    def comprobar_impacto(self, x, y):
+        # ===== NAVES ===== Aquí determinamos el nombre, tipo y vida de cada nave.
+        por1 = Nave("Destructor", "portaaviones", 5)
+        fra1 = Nave("Bismarck", "fragata", 3)
+        fra2 = Nave("Prince of Wales", "fragata", 3)
+        fra3 = Nave("Graf Spee", "fragata", 3)
 
-        print("(LOG) Estoy en tablero comprobando el impacto")
-        return self.agua
+        sub1 = Nave("U-47", "submarino", 1)
+        sub2 = Nave("U-96", "submarino", 1)
+        sub3 = Nave("U-505", "submarino", 1)
+        sub4 = Nave("U-534", "submarino", 1)
 
+        # ===== TABLERO BASE (SOLO CASILLAS) ===== Aqui estamos creando el casillero 10 x 10
+        self.casillero = [
+            [Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(),
+             Casilla()],
+
+            [Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(),
+             Casilla()],
+
+            [Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(),
+             Casilla()],
+
+            [Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(),
+             Casilla()],
+
+            [Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(),
+             Casilla()],
+
+            [Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(),
+             Casilla()],
+
+            [Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(),
+             Casilla()],
+
+            [Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(),
+             Casilla()],
+
+            [Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(),
+             Casilla()],
+
+            [Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(),
+             Casilla()]
+        ]
+
+        # portaaviones Localización de los portaaviones en el casillero.
+        self.casillero[1][1].nave = por1
+        self.casillero[1][2].nave = por1
+        self.casillero[1][3].nave = por1
+        self.casillero[1][4].nave = por1
+        self.casillero[1][5].nave = por1
+
+        # fragatas Localización de las fragatas en el casillero.
+        self.casillero[3][3].nave = fra1
+        self.casillero[4][3].nave = fra1
+        self.casillero[5][3].nave = fra1
+
+        self.casillero[7][1].nave = fra2
+        self.casillero[7][2].nave = fra2
+        self.casillero[7][3].nave = fra2
+
+        self.casillero[9][1].nave = fra3
+        self.casillero[9][2].nave = fra3
+        self.casillero[9][3].nave = fra3
+
+        # submarinos Localización de los submarinos en el casillero.
+        self.casillero[4][6].nave = sub1
+        self.casillero[9][9].nave = sub2
+        self.casillero[7][6].nave = sub3
+        self.casillero[9][5].nave = sub4
+
+    # ===== DISPARO =====
+    def comprobar_impacto(self, x, y): # Aquí comprobamos verdaderamente donde cayó el ataque que lanzamos en la clase juego.
+        print(f"Impacto en ({x},{y})")
+        return self.casillero[x][y].disparar()
