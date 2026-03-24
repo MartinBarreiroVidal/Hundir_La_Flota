@@ -1,26 +1,24 @@
 class Nave:
-    # El "constructor": define los datos necesarios al instanciar
-    def __init__(self, nombre, tamano, tipo):
-        """
-        Constructor de la clase Nave.
+    TOCADO = 1
+    HUNDIDO = 2
 
-        Args:
-            nombre (str): Nombre del barco (Submarino, Buque, Portaaviones)
-            tamano (int): Tamaño de la nave (número de casillas que ocupa)
-        """
-        self.nombre = nombre       # Atributo: Nombre de la nave
-        self.vida = tamano         # Atributo: Resistencia de la nave
+    def __init__(self, nombre, tipo, vida):
+        self.nombre = nombre
         self.tipo = tipo
-
+        self.vida = vida
+        self.hundido = False
 
     def recibir_disparo(self):
-        """
-            Procesa el impacto de un disparo en la nave.
-            Reduce la vida de la nave y devuelve el estado (Tocado/Hundido).
+        if self.hundido:
+            return self.HUNDIDO
 
-            Returns:
-            str: Estado de la nave tras el disparo ("Tocado", "Hundido", etc.)
-        """
-        self.vida = self.vida -1
-        return
+        self.vida -= 1
 
+        if self.vida <= 0:
+            self.vida = 0
+            self.hundido = True
+            print(f"{self.nombre} hundido")
+            return self.HUNDIDO
+        else:
+            print(f"{self.nombre} tocado. Vida restante: {self.vida}")
+            return self.TOCADO
