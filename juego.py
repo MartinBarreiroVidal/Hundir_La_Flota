@@ -23,10 +23,8 @@ class Juego:
 
     def jugar_demo(self): # Aquí es donde determinamos las casillas donde queremos lanzar el ataque.
         self.lanzar_ataque(1, 1)
-        self.lanzar_ataque(1, 2)
-        self.lanzar_ataque(1, 3)
-        self.lanzar_ataque(1, 4)
-        self.lanzar_ataque(1, 5)
+        self.lanzar_ataque(4, 3)
+        self.lanzar_ataque(4, 3)
         self.lanzar_ataque(6, 6)
 
 
